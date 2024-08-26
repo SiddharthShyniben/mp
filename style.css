@@ -1,0 +1,120 @@
+:root {
+  --bg: rgb(24, 24, 37);
+  --fg: rgb(206, 215, 243);
+  --primary: rgb(203, 168, 245);
+
+  --color-1: rgb(139, 182, 248);
+  --color-2: rgb(241, 205, 206);
+  --color-3: rgb(168, 226, 164);
+  --color-4: rgb(249, 179, 139);
+}
+
+html::-webkit-scrollbar {
+  background-color: var(--bg);
+  background-image: url("noise.png");
+  width: 7px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 10px;
+}
+
+body {
+  font-family: "Lexend Deca", sans-serif;
+  background-color: var(--bg);
+  background-image: url("noise.png");
+  color: var(--fg);
+}
+
+#main {
+  text-align: center;
+  z-index: 2;
+
+  position: sticky;
+  top: 0;
+  left: 50%;
+  margin-top: calc(50vh - 6.66rem);
+  padding-bottom: 0.5rem;
+}
+
+#main.shrink {
+  background-color: var(--bg);
+  background-image: url("noise.png");
+}
+
+.kaomoji {
+  font-family: "Space Mono", monospace;
+  letter-spacing: 0.4rem;
+  user-select: none;
+  animation: scale-up 2.5s linear forwards;
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: rgb(108, 113, 133);
+  transition: opacity 0.3s;
+}
+
+#main.shrink h2 {
+  opacity: 0;
+}
+
+section:not(#main) {
+  transform: translateY(50vh);
+  width: 70vw;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+section.about p {
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+mark {
+  color: var(--bg);
+  background: none;
+  position: relative;
+  white-space: pre;
+  display: inline-flex;
+  --after-scale: 1;
+  --color-bg-highlight: var(--color-1);
+}
+
+mark.m2 {
+  --color-bg-highlight: var(--color-2);
+}
+
+mark.m3 {
+  --color-bg-highlight: var(--color-3);
+}
+
+mark.m4 {
+  --color-bg-highlight: var(--color-4);
+}
+
+mark::after {
+  content: "";
+  left: -2.5%;
+  top: 10%;
+  bottom: -7.5%;
+  position: absolute;
+  z-index: -1;
+  width: 105%;
+  transform: scale3D(
+    var(--after-scale),
+    var(--after-scale),
+    var(--after-scale)
+  );
+  background: var(--color-bg-highlight);
+  border-radius: 8px;
+}
