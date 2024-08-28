@@ -11,7 +11,7 @@
 
 html::-webkit-scrollbar {
   background-color: var(--bg);
-  background-image: url("noise.png");
+  background-image: url("../img/noise.png");
   width: 7px;
 }
 
@@ -23,7 +23,7 @@ html::-webkit-scrollbar-thumb {
 body {
   font-family: "Lexend Deca", sans-serif;
   background-color: var(--bg);
-  background-image: url("noise.png");
+  background-image: url("../img/noise.png");
   color: var(--fg);
 }
 
@@ -40,7 +40,7 @@ body {
 
 #main.shrink {
   background-color: var(--bg);
-  background-image: url("noise.png");
+  background-image: url("../img/noise.png");
 }
 
 .kaomoji {
@@ -165,7 +165,6 @@ mark::after {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  border: 1px solid red;
 }
 
 .card {

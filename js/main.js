@@ -3,35 +3,10 @@ const header = document.querySelector("#main");
 const about = document.querySelector(".about");
 const scene = document.querySelector(".scene");
 
-const blink = () =>
-  setInterval(() => {
-    if (Math.random() > 0.9) kaomoji.innerHTML = "◕‿◠✿";
-    else kaomoji.innerHTML = "●‿●✿";
-    setTimeout(() => (kaomoji.innerHTML = "◕‿◕✿"), 200);
-  }, 1000);
-
-const scream = () =>
-  setInterval(() => {
-    kaomoji.innerHTML = "◠‿◠✿";
-    setTimeout(() => (kaomoji.innerHTML = "◕▽◕✿"), 500);
-  }, 3000);
-
-const heart = () =>
-  setInterval(() => {
-    kaomoji.innerHTML = "❤︎‿❤︎✿";
-    setTimeout(() => (kaomoji.innerHTML = "♥︎‿♥︎✿"), 500);
-  }, 1000);
-
-const excited = () =>
-  setInterval(() => {
-    kaomoji.innerHTML = "┗(◕‿◕✿)┓";
-    setTimeout(() => (kaomoji.innerHTML = "┏(◕‿◕✿)┛"), 100);
-  }, 200);
-
-let animation = blink();
-
-let didScroll = false,
-  changeHeaderOn = window.innerHeight / 3;
+let animation = blink(kaomoji);
+let didScroll = false;
+let changeHeaderOn = window.innerHeight / 3;
+let loadedTech = false;
 
 window.addEventListener(
   "scroll",
@@ -51,9 +26,7 @@ window.addEventListener(
   false,
 );
 
-let loaded = false;
-
-const init = () => {
+const runTechStack = () => {
   document.querySelector(".group").style.display = "block";
   document.querySelector(".headings").style.display = "block";
   const breakPoint = "53em";
@@ -204,20 +177,20 @@ const observer = new IntersectionObserver(
 
     if (highest.ratio === 0) {
       clearInterval(animation);
-      animation = blink();
+      animation = blink(kaomoji);
     } else if (highest.id == "about") {
       clearInterval(animation);
-      animation = scream();
+      animation = scream(kaomoji);
     } else if (highest.id == "scene") {
       clearInterval(animation);
-      animation = heart();
+      animation = heart(kaomoji);
     }
 
-    if (!loaded) {
+    if (!loadedTech) {
       const scene = sections.find((e) => e.id == "scene");
       if (scene && scene.ratio > 0.7) {
-        init();
-        loaded = true;
+        runTechStack();
+        loadedTech = true;
       }
     }
   },

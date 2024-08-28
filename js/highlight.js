@@ -14,7 +14,7 @@ class HighlightEffect {
     this.initializeEffect(this.wrapElement);
   }
 
-  initializeEffect(element) {
+  initializeEffect() {
     this.scroll();
   }
 
