@@ -9,6 +9,10 @@
   --color-4: rgb(249, 179, 139);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 html::-webkit-scrollbar {
   background-color: var(--bg);
   background-image: url("../img/noise.png");
@@ -25,6 +29,7 @@ body {
   background-color: var(--bg);
   background-image: url("../img/noise.png");
   color: var(--fg);
+  margin: 0;
 }
 
 #main {
@@ -34,6 +39,7 @@ body {
   position: sticky;
   top: 0;
   left: 50%;
+
   margin-top: calc(50vh - 6.66rem);
   padding-bottom: 0.5rem;
 }
@@ -52,7 +58,7 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 6.25rem);
   margin-top: 1rem;
   font-weight: 400;
 
@@ -60,14 +66,14 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 4rem);
   margin-bottom: 0;
   color: rgb(108, 113, 133);
   transition: opacity 0.3s;
 }
 
 #main.shrink h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1rem, 2vw, 4rem);
   margin-top: 0;
   margin-bottom: 2rem;
 }
@@ -83,7 +89,7 @@ section:not(#main) {
 }
 
 section.about p {
-  font-size: 4rem;
+  font-size: clamp(1.5rem, 3vw, 5rem);
   font-weight: 300;
 }
 
@@ -126,40 +132,8 @@ mark::after {
   border-radius: 8px;
 }
 
-@media (max-width: 768px) {
-  section.about p {
-    font-size: 1.5rem;
-  }
-
-  #main.shrink h1 {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 500px) {
-  section.about p {
-    font-size: 2rem;
-  }
-
-  #main.shrink h1 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 320px) {
-  section.about p {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  #main.shrink h1 {
-    font-size: 1.5rem;
-  }
-}
-
 .scene {
   perspective: 1000px;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,16 +165,12 @@ mark::after {
 .headings {
   text-align: center;
   position: relative;
-  z-index: -3;
+  z-index: 10;
   display: none;
 }
 
 .headings__main {
-  font-size: clamp(2.5rem, 1.59rem + 3.8vw, 6.25rem);
+  font-size: clamp(2rem, 1.59rem + 3.8vw, 6.25rem);
   font-weight: 400;
-}
-
-.headings__subtitle {
-  font-size: clamp(1rem, 0.757rem + 1.036vw, 2rem);
-  font-weight: 200;
+  z-index: 10;
 }

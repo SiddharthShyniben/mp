@@ -14,7 +14,7 @@ const scream = (kaomoji) =>
 const heart = (kaomoji) =>
   setInterval(() => {
     kaomoji.innerHTML = "❤︎‿❤︎✿";
-    setTimeout(() => (kaomoji.innerHTML = "♥︎‿♥︎✿"), 500);
+    setTimeout(() => (kaomoji.innerHTML = "◕‿◕✿"), 200);
   }, 1000);
 
 const excited = (kaomoji) =>
