@@ -55,6 +55,8 @@ h1 {
   font-size: 3rem;
   margin-top: 1rem;
   font-weight: 400;
+
+  transition: font-size 0.3s;
 }
 
 h2 {
@@ -72,7 +74,6 @@ section:not(#main) {
   transform: translateY(50vh);
   width: 70vw;
   margin: 0 auto;
-  min-height: 100vh;
 }
 
 section.about p {
@@ -117,4 +118,35 @@ mark::after {
   );
   background: var(--color-bg-highlight);
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  section.about p {
+    font-size: 1.5rem;
+  }
+
+  #main.shrink h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  section.about p {
+    font-size: 2rem;
+  }
+
+  #main.shrink h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  section.about p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  #main.shrink h1 {
+    font-size: 1.5rem;
+  }
 }

@@ -60,7 +60,7 @@ const observer = new IntersectionObserver((entries) => {
 
   if (highest.classList.contains("about")) {
     clearInterval(animation);
-    animation = excited();
+    animation = scream();
   } else if (highest.classList.contains("main")) {
     clearInterval(animation);
     animation = blink();
