@@ -66,6 +66,12 @@ h2 {
   transition: opacity 0.3s;
 }
 
+#main.shrink h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
 #main.shrink h2 {
   opacity: 0;
 }
@@ -149,4 +155,53 @@ mark::after {
   #main.shrink h1 {
     font-size: 1.5rem;
   }
+}
+
+.scene {
+  perspective: 1000px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid red;
+}
+
+.card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card__img {
+  width: 5em;
+  border-radius: 5px;
+  aspect-ratio: 1;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.group {
+  position: absolute;
+  left: 50%;
+}
+
+.headings {
+  text-align: center;
+  position: relative;
+  z-index: -3;
+  display: none;
+}
+
+.headings__main {
+  font-size: clamp(2.5rem, 1.59rem + 3.8vw, 6.25rem);
+  font-weight: 400;
+}
+
+.headings__subtitle {
+  font-size: clamp(1rem, 0.757rem + 1.036vw, 2rem);
+  font-weight: 200;
 }
