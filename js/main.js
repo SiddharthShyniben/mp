@@ -52,7 +52,7 @@ const runTechStack = () => {
       gsap
         .timeline()
         .from(cardList, {
-          y: window.innerHeight / 2 + image.clientHeight * 1.5,
+          y: window.innerHeight / 3 + image.clientHeight * 1.5,
           rotateX: -180,
           stagger: 0.1,
           duration: 0.5,
@@ -60,7 +60,7 @@ const runTechStack = () => {
           scale: 3,
         })
         .set(cardList, {
-          transformOrigin: `center ${radius1 + image.clientHeight / 2}px`,
+          transformOrigin: `center ${radius1 + image.clientHeight / 3}px`,
         })
         .set(".group", {
           // https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style
