@@ -182,13 +182,13 @@ const observer = new IntersectionObserver(
       clearInterval(animation);
       animation = scream(kaomoji);
     } else if (highest.id == "scene") {
-      clearInterval(animation);
-      animation = heart(kaomoji);
+      // clearInterval(animation);
+      // animation = heart(kaomoji);
     }
 
     if (!loadedTech) {
       const scene = sections.find((e) => e.id == "scene");
-      if (scene && scene.ratio > 0.7) {
+      if (scene && scene.ratio > 0.5) {
         runTechStack();
         loadedTech = true;
       }

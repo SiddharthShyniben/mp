@@ -9,6 +9,15 @@
   --color-4: rgb(249, 179, 139);
 }
 
+@font-face {
+  font-family: "Monaco";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Monaco"),
+    url("./Monaco.woff") format("woff");
+}
+
 html {
   overflow-x: hidden;
 }
@@ -50,7 +59,7 @@ body {
 }
 
 .kaomoji {
-  font-family: "Space Mono", monospace;
+  font-family: "Monaco", monospace;
   letter-spacing: 0.2rem;
   user-select: none;
   animation: scale-up 2.5s linear forwards;
