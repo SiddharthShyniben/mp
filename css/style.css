@@ -192,8 +192,6 @@ mark::after {
 .projects .grid > div {
   grid-row: span 1;
   background: rgba(24, 24, 37, 0.25);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 3px solid var(--bg);
   padding: 2rem;
@@ -276,4 +274,51 @@ mark::after {
 .grid__card:hover .external-link {
   opacity: 1;
   background-color: var(--fg);
+}
+
+footer {
+  width: 80vw;
+  margin: 0 auto;
+  transform: translateY(50vh);
+  padding: 1em;
+  font-weight: 300;
+}
+
+footer strong {
+  font-weight: 400;
+}
+
+.fade {
+  filter: brightness(0.7);
+}
+
+footer .right {
+  float: right;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 400;
+  color: var(--color-1);
+}
+
+a:hover {
+  filter: brightness(1.2);
+}
+
+@media (max-width: 1400px) {
+  .projects .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  footer .right {
+    float: none;
+    display: block;
+  }
+
+  .grid__card {
+    grid-column: span 10 !important;
+  }
 }
