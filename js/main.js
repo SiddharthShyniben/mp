@@ -3,6 +3,32 @@ const header = document.querySelector("#main");
 const about = document.querySelector(".about");
 const scene = document.querySelector(".scene");
 
+const gridItems = document.querySelectorAll(".projects .grid > div");
+
+gridItems.forEach((element) => {
+  element.addEventListener("click", (e) => e.preventDefault());
+  element.addEventListener("mousedown", (e) => {
+    let card = e.target.closest(".grid__card");
+    card.setAttribute("data-md", Date.now());
+  });
+
+  element.addEventListener("mouseup", (e) => {
+    e.stopPropagation();
+
+    let card = e.target.classList.contains("grid__card")
+        ? e.target
+        : e.target.closest(".grid__card"),
+      then = card.getAttribute("data-md"),
+      now = Date.now();
+
+    if (now - then < 200) {
+      window.open(card.dataset.href);
+    }
+
+    card.removeAttribute("data-md");
+  });
+});
+
 let animation = blink(kaomoji);
 let didScroll = false;
 let changeHeaderOn = window.innerHeight / 3;
@@ -54,8 +80,7 @@ const runTechStack = () => {
         .from(cardList, {
           y: window.innerHeight / 3 + image.clientHeight * 1.5,
           rotateX: -180,
-          stagger: 0.1,
-          duration: 0.5,
+          duration: 0,
           opacity: 0.8,
           scale: 3,
         })

@@ -189,46 +189,91 @@ mark::after {
   z-index: 10;
 }
 
-.columns {
-  color: var(--bg);
-  position: relative;
-  padding: 20vh 0;
-  display: grid;
-  place-items: center;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2vw;
-}
-
-.column {
-  width: 100%;
-  position: relative;
-  display: grid;
-  gap: 2vw;
-  grid-template-columns: 100%;
-  will-change: transform;
-}
-
-.column__item {
-  margin: 0;
-  position: relative;
+.projects .grid > div {
+  grid-row: span 1;
+  background: rgba(24, 24, 37, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 3px solid var(--bg);
+  padding: 2rem;
+  transition:
+    border 0.3s,
+    transform 0.3s;
   z-index: 1;
+  --color: var(--primary);
 }
 
-.column__item-imgwrap {
+.projects .grid {
+  display: grid;
+  height: 100%;
   width: 100%;
-  aspect-ratio: 0.75;
-  height: auto;
-  position: relative;
-  overflow: hidden;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 16px;
+  padding: 8px;
+  border-radius: 8px;
 }
 
-.column__item-img {
+.projects h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 0;
+  transition: color 0.3s;
+}
+
+.projects p {
+  font-weight: 300;
+}
+
+.grid__card:hover h3 {
+  color: var(--color);
+}
+
+.grid > div:nth-child(4n) {
+  --color: var(--color-1);
+}
+
+.grid > div:nth-child(4n + 1) {
+  --color: var(--color-2);
+}
+
+.grid > div:nth-child(4n + 2) {
+  --color: var(--color-3);
+}
+
+.grid > div:nth-child(4n + 3) {
+  --color: var(--color-4);
+}
+
+.grid > div:hover {
+  border: 3px solid var(--color);
+  transform: scale(1.03);
+  z-index: 99;
+  cursor: pointer;
+}
+
+.external-link {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("../img/external-link.svg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border-radius: 50%;
+
   position: absolute;
+  right: 0;
   top: 0;
-  left: 0;
-  height: calc(100%);
-  width: calc(100%);
-  background-size: cover;
-  background-position: 50% 20%;
-  backface-visibility: hidden;
+  transform: translate(50%, -50%);
+  opacity: 0;
+  transition:
+    background-color 0.3s,
+    opacity 0.3s;
+}
+
+.grid__card:hover .external-link {
+  opacity: 1;
+  background-color: var(--fg);
 }
